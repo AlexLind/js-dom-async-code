@@ -1,5 +1,6 @@
 const body = document.querySelector('body')
 const counterText = document.createElement('h1')
+const button = document.createElement('button')
 let counter = 10
 
 function addCounter() {    
@@ -8,10 +9,13 @@ function addCounter() {
     document.body.append(counterText)
 }
 
-if (counter == 0) {
-    console.log('here')
-    stopCounter()
+function addButton() {
+    button.classList.add('button')
+    button.setAttribute('onclick', 'buttonClick()')
+    button.innerHTML = 'Reset'
+    document.body.append(button)
 }
+
 function updateCounter() {
     counter--
     counterText.innerHTML = counter
@@ -19,6 +23,8 @@ function updateCounter() {
     if (counter == 0) {
         console.log('here')
         stopCounter()
+        counterText.style.color = 'red' 
+        counterText.style.animation = "blinker-ended 1s linear infinite";
     }
 }
 
@@ -26,5 +32,13 @@ function stopCounter() {
     clearInterval(myInterval)
 }
 
+function buttonClick() {
+    window.location.reload();
+}
+
+
+
 addCounter()
+addButton()
 const myInterval = setInterval(updateCounter, 1000)
+setTimeout(counter = 10, 10000)
