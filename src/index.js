@@ -12,6 +12,7 @@ function addCounter() {
 function addButton() {
     button.classList.add('button')
     button.setAttribute('onclick', 'buttonClick()')
+    button.addEventListener("click", buttonClick);
     button.innerHTML = 'Reset'
     document.body.append(button)
 }
@@ -41,4 +42,3 @@ function buttonClick() {
 addCounter()
 addButton()
 const myInterval = setInterval(updateCounter, 1000)
-setTimeout(counter = 10, 10000)
